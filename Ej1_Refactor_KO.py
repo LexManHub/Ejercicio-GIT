@@ -19,7 +19,7 @@ class Pasajero:
         self.telefono = telefono
         self.correo = correo
 
-class Informacion:
+class Reserva:# <-- Cambiado de 'Informacion' a 'Reserva' para que se entienda mejor
     def __init__(self, vuelo, pasajero, asientos):
         self.vuelo = vuelo
         self.pasajero = pasajero

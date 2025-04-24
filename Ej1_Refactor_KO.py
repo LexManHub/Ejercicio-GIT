@@ -1,7 +1,7 @@
 # Sistema de venta de billetes de avión
 
 class Vuelo:
-    def __init__(self, numero_vuelo, origen, destino, fecha, salida, llegada, precio):
+    def __init__(self, numero_vuelo, origen, destino, fecha, salida, llegada, precio, asientos_disponibles = 50):
         self.numero_vuelo = numero_vuelo
         self.origen = origen
         self.destino = destino
@@ -9,6 +9,7 @@ class Vuelo:
         self.salida = salida
         self.llegada = llegada
         self.precio = precio
+        self.asientos_disponibles = asientos_disponibles #Añadido para controlar disponibilidad real
 
 class Pasajero:
     def __init__(self, nombre, apellido, edad, telefono, correo):

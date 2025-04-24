@@ -82,6 +82,8 @@ def main():
         Vuelo("AA789", "Chicago", "Miami", "2024-05-25", "12:00", "15:00", 300.00)
     ]
 
+    reservas = []  #antes las reservas no se guardaban 
+    
     print("Bienvenido al sistema de venta de billetes de avión.")
     opcion = input("Seleccione una opción:\n1. Ver vuelos disponibles\n2. Reservar vuelo\nIngrese su opción: ")
 

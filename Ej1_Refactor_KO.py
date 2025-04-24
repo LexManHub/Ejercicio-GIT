@@ -52,22 +52,27 @@ def obtener_datos_reserva():  # Otra extaccion
             return numero, cantidad
         except ValueError:
             print("Cantidad no válida. Intente de nuevo.")
-def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
-    
-    for v in lista:
-        if v.numero_vuelo == numero_vuelo:
+
+def reservar_vuelo(vuelos, numero_vuelo, pasajero, cantidad):
+    for vuelo in vuelos:
+        if vuelo.numero_vuelo == numero_vuelo:
             if cantidad <= 0:
-                print("La cantidad de asientos debe ser mayor que cero.")
-                return
+                print("La cantidad de asientos debe ser mayor que cero.")  # <-- Validación lógica
+                return None
             elif cantidad > 10:
-                print("Lo sentimos, no se pueden reservar más de 10 asientos por reserva.")
-                return
-            elif cantidad > 0 and cantidad <= 10:
-                reserva = Informacion(v, pasajero, cantidad)
-                print(f"¡Reserva exitosa para el vuelo {v.numero_vuelo}!")
-                print(f"Nombre del pasajero: {pasajero.nombre} {pasajero.apellido}, Asientos reservados: {cantidad}")
-                return
-    print("No se encontró ningún vuelo con el número especificado.")
+                print("No se pueden reservar más de 10 asientos.")  # <-- Límite de negocio establecido
+                return None
+            elif cantidad > vuelo.asientos_disponibles:
+                print(f"Lo sentimos, solo hay {vuelo.asientos_disponibles} asientos disponibles.")  # <-- Verificación de disponibilidad
+                return None
+            else:
+                vuelo.asientos_disponibles -= cantidad  # <-- Se actualiza el número de asientos disponibles
+                reserva = Reserva(vuelo, pasajero, cantidad)
+                print(f"\n¡Reserva exitosa para el vuelo {vuelo.numero_vuelo}!")
+                print(f"Pasajero: {pasajero.nombre} {pasajero.apellido}, Asientos: {cantidad}")
+                return reserva
+    print("No se encontró ningún vuelo con ese número.")  # <-- Validación de vuelo inexistente
+    return None
 
 
 def main():

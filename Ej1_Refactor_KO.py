@@ -88,24 +88,23 @@ def main():
     opcion = input("Seleccione una opción:\n1. Ver vuelos disponibles\n2. Reservar vuelo\nIngrese su opción: ")
 
     if opcion == '1':
-        mostrar_vuelos_disponibles(vuelos)
-    elif opcion == '2':
-        #extraer método
-        n = input("Ingrese su nombre: ")
-        a = input("Ingrese su apellido: ")
-        e = int(input("Ingrese su edad: "))
-        t = input("Ingrese su número de teléfono: ")
-        c = input("Ingrese su correo electrónico: ")
+       while True:  # Hace mas facil el bucle y pedir datos hasta que sea necesario
+        opcion = input("\nSeleccione una opción:\n1. Ver vuelos disponibles\n2. Reservar vuelo\n3. Salir\nOpción: ")
+        if opcion == '1':
+            mostrar_vuelos_disponibles(vuelos)
+        elif opcion == '2':
+            pasajero = crear_pasajero()  # Usamos la misma funcion porque asi se ve mas claro
+            numero, cantidad = obtener_datos_reserva()
+            reserva = reservar_vuelo(vuelos, numero, pasajero, cantidad)
+            if reserva:
+                reservas.append(reserva)  #Guardamos las reservas en la lista
+        elif opcion == '3':
+            print("Gracias por usar nuestro sistema. ¡Buen viaje!")  # Opcion para salir
+            break
+        else:
+            print("Opción no válida. Intente de nuevo.")  # Validacion de entrada
+    
 
-        pasajero = Pasajero(n, a, e, t, c)
-
-        #extraer método
-        numero = input("Ingrese el número de vuelo que desea reservar: ")
-        cantidad = int(input("Ingrese la cantidad de asientos que desea reservar (máximo 10): "))
-
-        reservar_vuelo(vuelos, numero, pasajero, cantidad)
-    else:
-        print("Opción no válida.")
-
+    
 if __name__ == "__main__":
     main()

@@ -44,6 +44,14 @@ def crear_pasajero():  # Extraído para que no se duplique
     c = input("Ingrese su correo electrónico: ")
     return Pasajero(n, a, e, t, c)
 
+def obtener_datos_reserva():  # Otra extaccion
+    numero = input("Ingrese el número de vuelo que desea reservar: ")
+    while True:
+        try:
+            cantidad = int(input("Ingrese la cantidad de asientos (máximo 10): "))  # otra validacion
+            return numero, cantidad
+        except ValueError:
+            print("Cantidad no válida. Intente de nuevo.")
 def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
     
     for v in lista:

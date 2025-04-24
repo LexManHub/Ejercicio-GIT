@@ -28,7 +28,8 @@ class Reserva:# <-- Cambiado de 'Informacion' a 'Reserva' para que se entienda m
 def mostrar_vuelos_disponibles(vuelos):
     print("Vuelos disponibles:")
     for vuelo in vuelos:
-        print(f"Número de vuelo: {vuelo.numero_vuelo}, Origen: {vuelo.origen}, Destino: {vuelo.destino}, Fecha: {vuelo.fecha}, Hora de salida: {vuelo.salida}, Hora de llegada: {vuelo.llegada}, Precio: {vuelo.precio}")
+        print(f"Número de vuelo: {vuelo.numero_vuelo}, Origen: {vuelo.origen}, Destino: {vuelo.destino}, Fecha: {vuelo.fecha}, Hora de salida: {vuelo.salida}, Hora de llegada: {vuelo.llegada}")
+        print(f"Precio: {vuelo.precio}€, Asientos disponibles: {vuelo.asientos_disponibles}") # Mostramos disponibilidad real
 
 def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
     

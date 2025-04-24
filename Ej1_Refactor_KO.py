@@ -31,6 +31,19 @@ def mostrar_vuelos_disponibles(vuelos):
         print(f"Número de vuelo: {vuelo.numero_vuelo}, Origen: {vuelo.origen}, Destino: {vuelo.destino}, Fecha: {vuelo.fecha}, Hora de salida: {vuelo.salida}, Hora de llegada: {vuelo.llegada}")
         print(f"Precio: {vuelo.precio}€, Asientos disponibles: {vuelo.asientos_disponibles}") # Mostramos disponibilidad real
 
+def crear_pasajero():  # Extraído para que no se duplique
+    n = input("Ingrese su nombre: ")
+    a = input("Ingrese su apellido: ")
+    while True:
+        try:
+            e = int(input("Ingrese su edad: "))  # evita el error al poner un string en  int
+            break
+        except ValueError:
+            print("Edad no válida. Intente de nuevo.")
+    t = input("Ingrese su número de teléfono: ")
+    c = input("Ingrese su correo electrónico: ")
+    return Pasajero(n, a, e, t, c)
+
 def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
     
     for v in lista:

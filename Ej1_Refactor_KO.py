@@ -89,20 +89,20 @@ def main():
 
     if opcion == '1':
        while True:  # Hace mas facil el bucle y pedir datos hasta que sea necesario
-        opcion = input("\nSeleccione una opción:\n1. Ver vuelos disponibles\n2. Reservar vuelo\n3. Salir\nOpción: ")
-        if opcion == '1':
-            mostrar_vuelos_disponibles(vuelos)
-        elif opcion == '2':
-            pasajero = crear_pasajero()  # Usamos la misma funcion porque asi se ve mas claro
-            numero, cantidad = obtener_datos_reserva()
-            reserva = reservar_vuelo(vuelos, numero, pasajero, cantidad)
-            if reserva:
-                reservas.append(reserva)  #Guardamos las reservas en la lista
-        elif opcion == '3':
-            print("Gracias por usar nuestro sistema. ¡Buen viaje!")  # Opcion para salir
-            break
-        else:
-            print("Opción no válida. Intente de nuevo.")  # Validacion de entrada
+            opcion = input("\nSeleccione una opción:\n1. Ver vuelos disponibles\n2. Reservar vuelo\n3. Salir\nOpción: ")
+            if opcion == '1':
+                mostrar_vuelos_disponibles(vuelos)
+            elif opcion == '2':
+                pasajero = crear_pasajero()  # Usamos la misma funcion porque asi se ve mas claro
+                numero, cantidad = obtener_datos_reserva()
+                reserva = reservar_vuelo(vuelos, numero, pasajero, cantidad)
+                if reserva:
+                    reservas.append(reserva)  #Guardamos las reservas en la lista
+            elif opcion == '3':
+                print("Gracias por usar nuestro sistema. ¡Buen viaje!")  # Opcion para salir
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")  # Validacion de entrada
     
 
     
